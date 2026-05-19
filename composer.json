@@ -1,0 +1,16 @@
+{
+    "name": "cdsouza/recipehub-api",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Cdsouza\\RecipehubApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Caio de Souza",
+            "email": "caiodesouza.cds@gmail.com"
+        }
+    ],
+    "require": {}
+}
