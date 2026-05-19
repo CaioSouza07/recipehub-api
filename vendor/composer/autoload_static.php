@@ -7,20 +7,25 @@ namespace Composer\Autoload;
 class ComposerStaticInitae0cd7b85c9057accaccaa0f724efcff
 {
     public static $prefixLengthsPsr4 = array (
-        'C' =>
+        'A' =>
         array (
-            'Cdsouza\\RecipehubApi\\' => 21,
+            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Cdsouza\\RecipehubApi\\' =>
+        'App\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
     public static $classMap = array (
+        'App\\Database\\Connection' => __DIR__ . '/../..' . '/src/Database/Connection.php',
+        'App\\Models\\Avaliacao' => __DIR__ . '/../..' . '/src/Models/Avaliacao.php',
+        'App\\Models\\Categoria' => __DIR__ . '/../..' . '/src/Models/Categoria.php',
+        'App\\Models\\Ingrediente' => __DIR__ . '/../..' . '/src/Models/Ingrediente.php',
+        'App\\Models\\Receita' => __DIR__ . '/../..' . '/src/Models/Receita.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace model;
+namespace App\Models;
 
 class Receita{
     public function __construct(
@@ -19,11 +19,11 @@ class Receita{
         $this->id = $id;
     }
 
-    public function getCategoria(): \model\Categoria{
+    public function getCategoria(): Categoria{
         return $this->categoria;
     }
 
-    public function setCategoria(\model\Categoria $categoria): void{
+    public function setCategoria(Categoria $categoria): void{
         $this->categoria = $categoria;
     }
 

@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-namespace model;
+namespace App\Models;
 
-class Categoria{
+class Ingrediente{
     public function __construct(
         private int $id,
         private string $nome

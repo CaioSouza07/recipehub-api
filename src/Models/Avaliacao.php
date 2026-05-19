@@ -1,7 +1,8 @@
 <?php
 
 declare(strict_types=1);
-namespace model;
+namespace App\Models;
+
 class Avaliacao{
     public function __construct(
         private int $id,
