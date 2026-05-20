@@ -6,7 +6,6 @@ namespace App\Models;
 class Avaliacao{
     public function __construct(
         private int $id,
-        private Receita $receita,
         private int $nota,
         private string $comentario
     ){}
@@ -17,14 +16,6 @@ class Avaliacao{
 
     public function setId(int $id): void{
         $this->id = $id;
-    }
-
-    public function getReceita(): Receita{
-        return $this->receita;
-    }
-
-    public function setReceita(Receita $receita): void{
-        $this->receita = $receita;
     }
 
     public function getNota(): int{
