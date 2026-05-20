@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Models\Ingrediente;
+use App\Models\Receita;
 use PDO;
 class IngredienteRepository{
     public function __construct(

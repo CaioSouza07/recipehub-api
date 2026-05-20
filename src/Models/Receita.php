@@ -8,7 +8,9 @@ class Receita{
         private int $id,
         private Categoria $categoria,
         private string $titulo,
-        private int $tempoPreparo
+        private int $tempoPreparo,
+        private array $listaIngredientes,
+        private string $modoPreparo
     ){}
 
     public function getId(): int{
@@ -41,6 +43,32 @@ class Receita{
 
     public function setTempoPreparo(int $tempoPreparo): void{
         $this->tempoPreparo = $tempoPreparo;
+    }
+
+    public function getListaIngredientes(): array{
+        return $this->listaIngredientes;
+    }
+
+    public function setListaIngredientes(array $listaIngredientes): void{
+        $this->listaIngredientes = $listaIngredientes;
+    }
+
+    public function addIngrediente(Ingrediente $ingrediente): void{
+        $this->listaIngredientes[] = [$ingrediente->getId() => $ingrediente->getNome()];
+    }
+
+    public function removeIngrediente(Ingrediente $ingrediente): void{
+        unset($this->listaIngredientes[$ingrediente->getId()]);
+    }
+
+    public function getModoPreparo(): string
+    {
+        return $this->modoPreparo;
+    }
+
+    public function setModoPreparo(string $modoPreparo): void
+    {
+        $this->modoPreparo = $modoPreparo;
     }
 
 }
