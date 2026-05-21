@@ -25,7 +25,7 @@ class Router {
             $pattern = preg_replace('/\{(\w+)\}/', '(?P<\1>[^/]+)', $route);
             if (preg_match("#^{$pattern}$#", $path, $matches)) {
                 $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
-                echo json_encode($handler($params), JSON_THROW_ON_ERROR);
+                echo $handler($params);
                 return;
             }
         }
