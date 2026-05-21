@@ -10,7 +10,7 @@ class Receita{
         private string $titulo,
         private int $tempoPreparo,
         private array $listaIngredientes,
-        private string $modoPreparo
+        private string $modoPreparo,
     ){}
 
     public function getId(): int{

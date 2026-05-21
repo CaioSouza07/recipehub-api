@@ -77,9 +77,9 @@ class ReceitaRepository{
         return null;
     }
 
-    public function delete(Receita $categoria): bool{
-        $stmt = $this->pdo->prepare('DELETE FROM categorias WHERE id = :id');
-        $stmt->execute(['id' => $categoria->getId()]);
+    public function delete(Receita $receita): bool{
+        $stmt = $this->pdo->prepare('DELETE FROM receitas WHERE id = :id');
+        $stmt->execute(['id' => $receita->getId()]);
         return $stmt->rowCount() > 0;
     }
 }
