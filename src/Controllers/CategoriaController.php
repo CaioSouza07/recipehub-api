@@ -15,9 +15,19 @@ class CategoriaController
         $this->service = new CategoriaService();
     }
 
-    public function save(array $parametros): string{
-        $novaCategoria = $this->service->save($parametros);
-        return JsonResponse::json(200, 'success', $novaCategoria);
+    public function save(array $body = []): string{
+        $novaCategoria = $this->service->save($body);
+        return JsonResponse::json(201, 'success', $novaCategoria);
+    }
+
+    public function getAll(): string{
+        $categorias = $this->service->getAll();
+        return JsonResponse::json(200, 'success', $categorias);
+    }
+
+    public function delete(array $params = []): string{
+        $this->service->delete((int)$params['id']);
+        return JsonResponse::json(200, 'success');
     }
 
 }

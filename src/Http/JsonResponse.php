@@ -2,7 +2,7 @@
 
 namespace App\Http;
 class JsonResponse{
-    public static function json($status, $message, $data): string {
+    public static function json($status, $message, $data = []): string {
         header('Content-Type: application/json');
         http_response_code($status);
 

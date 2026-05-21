@@ -12,8 +12,7 @@ class CategoriaRepository{
     ){}
 
     public function findAll(): array{
-        $dados = $this->pdo->query('SELECT * FROM categorias')->fetchAll(PDO::FETCH_ASSOC);
-        return array_map(fn($i) => new Categoria($i['id'], $i['nome']), $dados);
+        return $this->pdo->query('SELECT * FROM categorias')->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function findById(int $id): ?Categoria{
@@ -48,11 +47,10 @@ class CategoriaRepository{
         return null;
     }
 
-    public function delete(Categoria $categoria): bool{
+    public function delete(int $id): bool{
         $stmt = $this->pdo->prepare('DELETE FROM categorias WHERE id = :id');
-        $stmt->execute(['id' => $categoria->getId()]);
+        $stmt->execute(['id' => $id]);
         return $stmt->rowCount() > 0;
     }
-
 
 }

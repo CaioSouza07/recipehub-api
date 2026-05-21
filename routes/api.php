@@ -9,4 +9,6 @@ use App\Http\Router;
 
 $categoriaController = new CategoriaController();
 
-$router->post('/categorias', fn($p) => $categoriaController->save($p));
+$router->post('/categorias', fn($p, $b) => $categoriaController->save($b));
+$router->get('/categorias', fn($p, $b) => $categoriaController->getAll());
+$router->delete('/categorias/{id}', fn($p, $b) => $categoriaController->delete($p));

@@ -23,4 +23,12 @@ class CategoriaService{
             'nome' => $categoria->getNome()
         ];
     }
+
+    public function getAll(): array{
+        return $this->categoriaRepository->findAll();
+    }
+
+    public function delete(int $id): void{
+        $this->categoriaRepository->delete($id);
+    }
 }
