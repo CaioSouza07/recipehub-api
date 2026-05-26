@@ -7,15 +7,17 @@ namespace App\Services;
 use App\Database\Connection;
 use App\Repository\CategoriaRepository;
 
-class CategoriaService{
-
+class CategoriaService
+{
     private CategoriaRepository $categoriaRepository;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->categoriaRepository = new CategoriaRepository(Connection::getConnection());
     }
 
-    public function save(array $parametros): array{
+    public function save(array $parametros): array
+    {
         $categoria = $this->categoriaRepository->save($parametros['nome']);
         return [
             'id' => $categoria->getId(),
@@ -23,11 +25,13 @@ class CategoriaService{
         ];
     }
 
-    public function getAll(): array{
+    public function getAll(): array
+    {
         return $this->categoriaRepository->findAll();
     }
 
-    public function delete(int $id): void{
+    public function delete(int $id): void
+    {
         $this->categoriaRepository->delete($id);
     }
 }

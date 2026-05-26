@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http;
-class JsonResponse{
-    public static function json($status, $message, $data = []): string {
+
+class JsonResponse
+{
+    public static function json(int $status, string $message, array $data = []): string
+    {
         header('Content-Type: application/json');
         http_response_code($status);
 
