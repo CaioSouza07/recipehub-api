@@ -18,3 +18,4 @@ $router->delete('/categorias/{id}', fn($p, $b) => $categoriaController->delete($
 
 $router->post('/receitas', fn($p, $b) => $receitaController->save($b));
 $router->get('/receitas', fn($p, $b) => $receitaController->getAll());
+$router->delete('/receitas/{id}', fn($p, $b) => $receitaController->delete($p));

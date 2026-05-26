@@ -9,6 +9,7 @@ use App\Models\Receita;
 use App\Repository\CategoriaRepository;
 use App\Repository\IngredienteRepository;
 use App\Repository\ReceitaRepository;
+use Exception;
 
 class ReceitaService
 {
@@ -29,7 +30,7 @@ class ReceitaService
         $categoria = $this->categoriaRepository->findById($body['id_categoria']);
 
         if (!$categoria) {
-            throw new \Exception('Nenhuma categoria com esse id encontrada!');
+            throw new Exception('Nenhuma categoria com esse id encontrada!');
         }
 
         $receita = new Receita(null, $categoria, $body['titulo'], (int) $body['tempo_preparo'], null, $body['modo_preparo']);
@@ -58,8 +59,24 @@ class ReceitaService
         return array_map(fn($r) => $r->toArray(), $receitas);
     }
 
+    /**
+     * @throws Exception
+     */
     public function delete(array $params): void
     {
+        $receita = $this->receitaRepository->findById($params['id']);
+
+        if(!$receita){
+            throw new Exception('Receita com esse id não encontrada!');
+        }
+
+        if ($this->receitaRepository->deleteReceitaIngredientes($receita->getId())){
+            throw new Exception('Não foi possivel realizar a exclusao da tabela de receitas_ingredientes');
+        }
+
+        if ($this->receitaRepository->delete($receita)){
+            throw new Exception('Não foi possível realizar a exclusao da tabela de receitas)ingredientes');
+        }
 
     }
 

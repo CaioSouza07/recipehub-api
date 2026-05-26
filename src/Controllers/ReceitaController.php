@@ -35,4 +35,15 @@ class ReceitaController
             return JsonResponse::json(500, $e->getMessage());
         }
     }
+
+    public function delete(array $params = []): string
+    {
+        try{
+            $this->receitaService->delete($params);
+            return JsonResponse::json(200, 'success');
+        }catch (\Exception $e){
+            return JsonResponse::json(500, $e->getMessage());
+        }
+
+    }
 }
